@@ -1,0 +1,27 @@
+# Focus on float window with dialog
+
+Use this keymap to focus on the float window with dialog:
+
+```lua
+vim.keymap.set(
+  "n",
+  "<space>zz",
+  "<cmd> lua vim.diagnostic.open_float()<cr><cmd>lua vim.diagnostic.open_float()<cr>",
+  { silent = true }
+)
+```
+## Description
+
+This keymap enables you to quickly focus on the float window with dialog in Neovim. It combines commands to open the float window with dialog, improving your coding workflow.
+
+## Usage
+
+Press `Space zz` in Normal mode to activate the keymap and perform the following actions:
+## Explanation
+
+- The command `vim.keymap.set("n", "<space>zz", ...)` sets up a keymap binding in Neovim's Normal mode.
+- When you press `Space zz`, the keymap executes the following commands sequentially:
+  - `vim.diagnostic.open_float()` opens the float window with dialog.
+  - `vim.diagnostic.open_float()` opens the float window with dialog again (repeated for clarity).
+
+This keymap is useful for quickly focusing on the float window with dialog, allowing you to efficiently manage code feedback and issues.

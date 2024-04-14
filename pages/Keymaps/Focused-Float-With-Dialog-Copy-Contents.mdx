@@ -1,0 +1,29 @@
+# Focus on Float Window with Dialog and Copy Contents
+
+Use this keymap to focus on the float window with dialog and copy its contents:
+
+```lua
+vim.keymap.set(
+  "n",
+  "<space>zy",
+  "<cmd> lua vim.diagnostic.open_float()<cr><cmd>lua vim.diagnostic.open_float()<cr><cmd>lua vim.cmd('normal! ggVGy')<cr>",
+  { silent = true }
+)
+```
+## Description
+
+This keymap enables you to focus on the float window with dialog and copy its contents in Neovim. It combines commands to open the float window with dialog and copy its contents, enhancing your editing workflow.
+
+## Usage
+
+Press `Space zy` in Normal mode to activate the keymap and perform the following actions:
+
+## Explanation
+
+- The command `vim.keymap.set("n", "<space>zy", ...)` sets up a keymap binding in Neovim's Normal mode.
+- When you press `Space zy`, the keymap executes the following commands sequentially:
+  - `vim.diagnostic.open_float()` opens the float window with dialog.
+  - `vim.diagnostic.open_float()` opens the float window with dialog again (repeated for clarity).
+  - `vim.cmd('normal! ggVGy')` selects all contents in the float window and copies them (`ggVGy` is a Vim command sequence to select everything in the buffer and copy it).
+
+This keymap is useful for quickly focusing on and copying contents from the float window with dialog, improving your editing efficiency.

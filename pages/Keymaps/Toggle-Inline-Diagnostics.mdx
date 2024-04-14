@@ -1,0 +1,31 @@
+# Toggle Inline Diagnostics Command
+
+This Neovim command toggles inline diagnostics, making it easier to manage code feedback.
+
+```lua
+vim.keymap.set("n", "<space>zx", function()
+  local current_value = vim.diagnostic.config().virtual_text
+  if current_value then
+    vim.diagnostic.config({ virtual_text = false })
+  else
+    vim.diagnostic.config({ virtual_text = true })
+  end
+end, { desc = "toggle inline diagnostics" })
+```
+
+## Description
+
+When working on code, having inline diagnostics can significantly improve your productivity by providing immediate feedback on errors, warnings, or other issues in your codebase. This command enables you to toggle the display of inline diagnostics, allowing you to focus on resolving issues efficiently.
+
+## Usage
+
+1. Press `Space zx` in Normal mode to toggle inline diagnostics on or off.
+
+## Explanation
+
+- The command `vim.keymap.set("n", "<space>zx", ...)` sets up a keymap binding in Neovim's Normal mode.
+- When you press `Space zx`, the command checks the current state of inline diagnostics using `vim.diagnostic.config().virtual_text`.
+- If inline diagnostics are currently enabled (`current_value` is true), it turns them off (`vim.diagnostic.config({ virtual_text = false })`).
+- If inline diagnostics are disabled (`current_value` is false), it turns them on (`vim.diagnostic.config({ virtual_text = true })`).
+
+Use this command to streamline your coding workflow, manage code issues effectively, and stay focused on writing quality code!

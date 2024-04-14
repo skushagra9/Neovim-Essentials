@@ -1,0 +1,56 @@
+
+# Function to Check if a Floating Dialog Exists and If Not Then Check for Diagnostics Under the Cursor
+
+This function checks if a floating dialog exists, and if not, it opens diagnostics under the cursor. It enhances your coding experience by providing immediate feedback on code issues when needed.
+```lua
+function OpenDiagnosticIfNoFloat()
+  for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if vim.api.nvim_win_get_config(winid).zindex then
+      return
+    end
+  end
+  -- THIS IS FOR BUILTIN LSP
+  vim.diagnostic.open_float(0, {
+    scope = "cursor",
+    focusable = false,
+    close_events = {
+      "CursorMoved",
+      "CursorMovedI",
+      "BufHidden",
+      "InsertCharPre",
+      "WinLeave",
+    },
+  })
+end
+```
+
+The function is automatically triggered when you hold the cursor position in Normal mode.
+
+```lua
+vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  pattern = "*",
+  command = "lua OpenDiagnosticIfNoFloat()",
+  group = "lsp_diagnostics_hold",
+})
+
+```
+
+
+## Description
+These functions enhance your coding experience by providing immediate feedback on code issues when needed. The first function checks if a floating dialog exists, and if not, it opens diagnostics under the cursor. The second function creates an autocmd to continuously show diagnostics under the cursor when holding position in Normal mode.
+
+## Usage
+
+The autocmd is triggered automatically when you hold the cursor position in Normal mode.
+
+## Explanation
+
+These functions enhance your coding experience by providing immediate feedback on code issues when needed. The first function checks if a floating dialog exists, and if not, it opens diagnostics under the cursor using specific configurations. The second function creates an autocmd to continuously show diagnostics under the cursor when holding position in Normal mode.
+
+- The function `OpenDiagnosticIfNoFloat()` loops through the list of window IDs in the current tabpage to check for a floating dialog.
+- If no floating dialog is found, it opens diagnostics under the cursor using specific configurations.
+- The autocmd `CursorHold` listens for the cursor hold event and executes the command to show diagnostics under the cursor continuously.
+
+This setup ensures that you receive timely feedback on code issues without interruptions from floating dialogs and have access to real-time diagnostics as you navigate and edit your code, improving your coding efficiency and quality.
+
