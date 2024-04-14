@@ -1,5 +1,6 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
   logo: (
@@ -12,6 +13,14 @@ const config: DocsThemeConfig = {
   },
   chat: {
     link: 'https://discordapp.com/channels/@me/kushagra_16/',
+  },
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s'
+      }
+    }
   },
   editLink: { component: null },
   feedback: { content: null },
