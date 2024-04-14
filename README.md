@@ -100,7 +100,7 @@ We welcome and appreciate contributions from the community! Whether you want to 
 
 ## Credits
 [Comments Plugin](https://github.com/numToStr/Comment.nvim).
-[Dialog Focus]([https://github.com/numToStr/Comment.nvim](https://www.reddit.com/r/neovim/comments/13cmg65/how_to_focus_on_a_diagnostic_message/)).
+[Dialog Focus](https://www.reddit.com/r/neovim/comments/13cmg65/how_to_focus_on_a_diagnostic_message/).
 
 
 ## License
