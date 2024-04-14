@@ -2,7 +2,7 @@
 
 Welcome to NeoVim Productivity Unleashed! This repository is dedicated to providing you with a curated list of essential NeoVim plugins and a powerful keymap to boost your productivity.
 
-## Included Plugins
+## Plugins
 
 Discover the following essential plugins:
 
@@ -17,7 +17,7 @@ Discover the following essential plugins:
   }
   ```
 
-## Keymap Reference
+## Keymaps
 
 Explore our powerful keymap for efficient navigation and editing:
 
@@ -100,6 +100,7 @@ We welcome and appreciate contributions from the community! Whether you want to 
 
 ## Credits
 [Comments Plugin](https://github.com/numToStr/Comment.nvim).
+[Dialog Focus]([https://github.com/numToStr/Comment.nvim](https://www.reddit.com/r/neovim/comments/13cmg65/how_to_focus_on_a_diagnostic_message/)).
 
 
 ## License
